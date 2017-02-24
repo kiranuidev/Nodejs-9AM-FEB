@@ -1,6 +1,44 @@
 <html>
-<head></head>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+</head>
 <body>
     <h1>Products</h1>
+    <div class= "col-xs-12">
+     <div class="col-xs-3">
+     <%- include('../templates/leftsidebar'); %>
+     </div>
+     <div class="col-xs-9">
+     <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Model</th>
+                        <th>Description</th>
+                        <th><a href="#" ng-click="pc.orderByPrice()">Price <i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th><a href="#" ng-click="pc.showMore()">Show More</a></th>
+                    </tr>
+                </thead>
+                
+               <% products.forEach(function(item){ %>
+               <% if(item.index %2==0) { %>
+<tr>
+        <td><%= item.index %></td>
+         <td><%= item.Model %></td>
+         <td><%= item.Description %></td>
+          <td><%= item.Price %></td>
+    </tr>
+     <% } %>
+<% }) %>
+
+             
+    
+                </table>
+     </div>
+
+    </div>
+   
+        
+
 </body>
 </html>
