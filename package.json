@@ -1,0 +1,29 @@
+{
+  "name": "Nodejs-9AM-FEB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.5",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiranuidev/Nodejs-9AM-FEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiranuidev/Nodejs-9AM-FEB/issues"
+  },
+  "homepage": "https://github.com/kiranuidev/Nodejs-9AM-FEB#readme"
+}

@@ -554,7 +554,8 @@ productsCtrl.getProductsPage = function (req, res) {
 
 };
 productsCtrl.getTopTenProducts = function(req,res){
-  var tenProducts = products.slice(0,10);
+  var productCount = req.params.id;
+  var tenProducts = products.slice(0,productCount);
   res.render("products/products",{products:tenProducts});
 }
 
