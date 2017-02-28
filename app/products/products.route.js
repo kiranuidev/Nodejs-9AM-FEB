@@ -3,5 +3,7 @@ var productsCtrl = require("./productsCtrl");
 module.exports = function (app) {
     app.get("/products",productsCtrl.getProductsPage);
     //route with id.
-    app.get("/products/:id",productsCtrl.getTopTenProducts);
+    // app.get("/products/:id",productsCtrl.getTopTenProducts);
+    app.get("/products/create",productsCtrl.showAddProductsPage);
+    app.post("/products/create",productsCtrl.create);
 };

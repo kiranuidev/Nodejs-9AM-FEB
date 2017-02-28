@@ -12,6 +12,8 @@ var mongodb = function () {
     db.once('open', function () {
         console.log("database connected");
     });
+    //import your models
+    require("../app/products/products.model");
 }
 
 module.exports=mongodb;
