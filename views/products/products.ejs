@@ -8,6 +8,11 @@
      <div class="col-xs-3">
      <%- include('../templates/leftsidebar'); %>
      </div>
+     <form method="POST" action="products/search">
+                <input type="text" name="Description" class="form-control" placholder="Searh">
+                 <input type="text" name="Price" class="form-control" placholder="Searh">
+                <button type="submit" class="btn btn-primary">Search</button>
+     </form>
      <div class="col-xs-9">
      <table class="table table-striped">
                 <thead>
@@ -21,9 +26,9 @@
                 </thead>
                 
                <% products.forEach(function(item){ %>
-               <% if(item.index %2==0) { %>
+               <% if(item.Index %2==0) { %>
 <tr>
-        <td><%= item.index %></td>
+        <td><%= item.Index %></td>
          <td><%= item.Model %></td>
          <td><%= item.Description %></td>
           <td><%= item.Price %></td>

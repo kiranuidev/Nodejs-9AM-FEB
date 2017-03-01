@@ -9,11 +9,14 @@
 
 var mongoose = require("mongoose");
 var products = {
-    name: { type: String },
-    price: { type: Number },
-    description: { type: String },
-    createdDate: { type: Date },
-    isAvailable: {type: Boolean}
+  Picture:{type:String},
+    Name: { type: String },
+    Price: { type: Number },
+    Description: { type: String },
+    ProductId:{type:String},
+    Index:{type:String},
+    createdDate: { type: Date,defaulte:Date.now },
+    isAvailable: {type: Boolean,default:false}
 };
 //attach products to the schema
 var productSchema = mongoose.Schema(products);
