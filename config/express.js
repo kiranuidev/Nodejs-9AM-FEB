@@ -10,5 +10,6 @@ app.set('view engine', 'ejs');
 require("../app/index/index.route")(app);
 require("../app/login/login.route")(app);
 require("../app/products/products.route")(app);
+require("../app/profile/profile.route")(app);
 
 module.exports = app;

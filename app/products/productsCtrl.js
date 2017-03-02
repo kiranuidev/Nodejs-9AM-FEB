@@ -549,7 +549,6 @@ var products =
   ];
 var productSchema = require("mongoose").model("product");
 productsCtrl.getProductsPage = function (req, res) {
-
   productSchema.find({}, function (err, data) {
     if (err) {
       res.send("<h1>Error occured</h1>")
@@ -566,9 +565,6 @@ productsCtrl.getTopTenProducts = function (req, res) {
   var tenProducts = products.slice(0, productCount);
   res.render("products/products", { products: tenProducts });
 }
-
-
-
 
 productsCtrl.create = function (req, res) {
   console.log(req.body);
@@ -623,8 +619,6 @@ productsCtrl.insertProducts = function (req, res) {
     }
   })
 }
-
-
 
 productsCtrl.showAddProductsPage = function (req, res) {
   res.render("products/addproduct");

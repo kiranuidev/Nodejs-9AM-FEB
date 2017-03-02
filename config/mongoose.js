@@ -14,6 +14,7 @@ var mongodb = function () {
     });
     //import your models
     require("../app/products/products.model");
+    require("../app/profile/profile.model");
 }
 
 module.exports=mongodb;
