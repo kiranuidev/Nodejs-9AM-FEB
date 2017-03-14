@@ -554,8 +554,9 @@ productsCtrl.getProductsPage = function (req, res) {
       res.send("<h1>Error occured</h1>")
     }
     else {
-      res.render("products/products", { products: data });
-    }
+      //res.render("products/products", { products: data });
+      res.json(data);
+   }
   });
   // res.render("products/products", { products: products });
 

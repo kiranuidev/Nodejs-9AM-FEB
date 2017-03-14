@@ -11,5 +11,5 @@ require("../app/index/index.route")(app);
 require("../app/login/login.route")(app);
 require("../app/products/products.route")(app);
 require("../app/profile/profile.route")(app);
-
+require("../app/users/users.route")(app);
 module.exports = app;

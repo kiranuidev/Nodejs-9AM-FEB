@@ -48,13 +48,15 @@ profileCtrl.getProfilesByAge = function (req, res) {
   profileSchema.find(
     {
       age: {
-        //$gt:searchCriteria
-       // $gte:searchCriteria
-       $eq:searchCriteria
+        //   //$gt:searchCriteria,
+        //  //$gte:searchCriteria,
+        $lt: searchCriteria
+
       }
+
     },
     {
-      name:1,age:1
+      name: 1, age: 1
     },
     function (err, data) {
       if (err) {
@@ -66,4 +68,41 @@ profileCtrl.getProfilesByAge = function (req, res) {
     }
   )
 };
+profileCtrl.search = function (req, res) {
+  var criteria = req.body;
+var buildQuery ={};
+var  searchByAge={
+   };
+if(criteria.age){
+  if(criteria.age.minAge){
+    searchByAge["$gte"] =criteria.age.minAge
+  }
+  if(criteria.age.maxAge){
+    searchByAge["$lte"] = criteria.age.maxAge;
+  }
+}
+
+  profileSchema.find({
+    $or: [{
+      "friends.name": criteria.friendName
+    },
+    {
+      "age":searchByAge
+    },
+    ]
+  },
+   {
+      name: 1, age: 1,friends:1
+    },
+    function (err, data) {
+      if (err) {
+        res.send("Error Occured");
+      }
+      else {
+        res.json(data);
+      }
+    })
+}
+
+
 module.exports = profileCtrl;
