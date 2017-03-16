@@ -20,7 +20,7 @@ usersCtrl.create = function (req, res) {
 usersCtrl.login = function (req, res) {
   var user = req.body;
   //Step 1. Fetch the user name and password from database.
-  userSchema.findOne({ username: user.username }, { password: 1 }, function (err, data) {
+  userSchema.findOne({ username: user.username }, { password: 1,isAdmin:1 }, function (err, data) {
     data.comparePassword(user.password, function (isError, isMatch) {
        if(isError){
          res.json({"Error":isError})

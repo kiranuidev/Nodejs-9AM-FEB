@@ -6,7 +6,8 @@ var users =     {
     "email" : {type: String},
     "password":{type: String},
      "age" : {type: Number},
-    "phone" : {type:Number}
+    "phone" : {type:Number},
+    "isAdmin":{type:Boolean, default:false}
     
 };
 var userSchema = mongoose.Schema(users);
