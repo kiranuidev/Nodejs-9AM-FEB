@@ -2,22 +2,31 @@
 var app = require("express")();
 var logger = require("./logger");
 var jwt = require("jwt-simple");
+var passport = require("passport");
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(authorize);
+//app.use(authorize);
 
 app.use(logger);
 app.set('view engine', 'ejs');
+
+require("./passport")(app,passport);
+//to maintain persistent sessioins 
+app.use(passport.initialize());
+app.use(passport.session());
+
 require("../app/index/index.route")(app);
-require("../app/login/login.route")(app);
+require("../app/login/login.route")(app,passport);
 require("../app/products/products.route")(app);
 require("../app/profile/profile.route")(app);
 require("../app/users/users.route")(app);
 
 
 function authorize(req, res, next) {
-    if (req.url == "/api/users/login" || req.url == "/api/users/create") {
+    if (req.url == "/login" 
+    ||req.url == "/login/facebook" 
+    || req.url == "/api/users/create") {
         console.log("Valid route");
         next();
     }
