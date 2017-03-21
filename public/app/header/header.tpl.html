@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default" ng-controller="headerCtrl as hc">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <custom-brand></custom-brand>
+      <!--<a class="navbar-brand" href="#">Brand</a>-->
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in hc.navItems"
+         ng-click="hc.changeState(item.key)">
+          <!--<a ui-sref="{{item.key}}">{{item.value}}</a>-->
+          <a href="#">{{item.value}}</a>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Cart {{hc.cartItems}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

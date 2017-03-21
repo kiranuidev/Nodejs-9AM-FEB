@@ -1,17 +1,25 @@
 //load express module
-var app = require("express")();
+var express = require("express");
+var app = express();
 var logger = require("./logger");
 var jwt = require("jwt-simple");
 var passport = require("passport");
+ var path = require("path");
+
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use(authorize);
 
 app.use(logger);
-app.set('view engine', 'ejs');
+
+
 
 require("./passport")(app,passport);
+var publicDir = path.resolve("../", "NODEJS-9AM-FEB");
+console.log(publicDir);
+app.use(express.static(publicDir+"/public"));
+app.set('view engine', 'ejs');
 //to maintain persistent sessioins 
 app.use(passport.initialize());
 app.use(passport.session());

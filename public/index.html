@@ -1,0 +1,50 @@
+<html ng-app="bitblogger">
+
+<head>
+    <title>{{welcome}}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <!--Step 2. refer the angular-ui-router-->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-controller="mainCtrl as mc">
+        <!--directive as an Element-->
+        <custom-nav-bar></custom-nav-bar>
+        
+        
+
+        <!--<div ng-include="mc.headerTemplate"></div>-->
+        <div ui-view></div>
+          
+    </div>
+
+    <script src="app/header/header.js"></script>
+    <script src="app/header/headerCtrl.js"></script>
+    <script src="app/login/login.js"></script>
+
+
+    <script src="app/comments/comments.js"></script>
+    <script src="app/comments/commentsSvc.js"></script>
+    <script src="app/comments/commentsCtrl.js"></script>
+
+    <script src="app/posts/posts.js"></script>
+    <script src="app/posts/postsSvc.js"></script>
+    <script src="app/posts/postsCtrl.js"></script>
+
+    <script src="app/register/register.js"></script>
+    <script src="app/register/registerSvc.js"></script>
+    <script src="app/register/registerCtrl.js"></script>
+    <script src="app/products/products.js"></script>
+    <script src="app/common/common.js"></script>
+    <script src="app/app.js"></script>
+</body>
+
+</html>

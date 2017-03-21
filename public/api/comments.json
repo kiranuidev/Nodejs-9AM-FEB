@@ -1,0 +1,14 @@
+{
+    "comments": [
+        {
+            "postId": "1",
+            "commentId": "cm1",
+            "commentText": "Your Blog is awesome"
+        },
+        {
+            "postId": "1",
+            "commentId": "cm2",
+            "commentText": "Hey Kiran you made it clear.... Thanks"
+        }
+    ]
+}

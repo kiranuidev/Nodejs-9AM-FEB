@@ -1,6 +1,7 @@
 var loginCtrl = {};
 
 loginCtrl.getLoginPage = function (req, res) {
+     console.log(`Worker ${process.pid} started`);
     res.render("login/login",{title:"LoginPage",username:"Kiran"});
 };
 
