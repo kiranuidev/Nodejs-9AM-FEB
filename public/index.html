@@ -6,7 +6,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
     <script src="bower_components/angular/angular.js"></script>
@@ -18,12 +18,16 @@
     <div class="container" ng-controller="mainCtrl as mc">
         <!--directive as an Element-->
         <custom-nav-bar></custom-nav-bar>
-        
-        
+
+
 
         <!--<div ng-include="mc.headerTemplate"></div>-->
         <div ui-view></div>
-          
+        <form id="uploadForm" enctype="multipart/form-data" action="api/upload" method="post">
+            <input type="file" name="userPhoto" />
+            <input type="submit" value="Upload Image" name="submit">
+            <span id="status"></span>
+        </form>
     </div>
 
     <script src="app/header/header.js"></script>
@@ -45,6 +49,28 @@
     <script src="app/products/products.js"></script>
     <script src="app/common/common.js"></script>
     <script src="app/app.js"></script>
+    <script>
+  $(document).ready(function() {
+
+     $('#uploadForm').submit(function() {
+		 $("#status").empty().text("File is uploading...");
+
+        $(this).ajaxSubmit({
+
+            error: function(xhr) {
+		            status('Error: ' + xhr.status);
+            },
+
+            success: function(response) {
+					console.log(response)
+					$("#status").empty().text(response);
+            }
+	});
+
+	return false;
+    });    
+});
+  </script>
 </body>
 
 </html>
