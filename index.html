@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <h1>Welcome to super chart</h1>
+    <div>
+        <input type="text" id="userId">
+        <button id="btnCreateUser">Create User</button>
+    </div>
+    <ul id="chatMessages">
+    </ul>
+    <input type="text" id="txtChat">
+    <button id="btnSend">Enter</button>
+
+    <script>
+        var socket=io();
+        
+       $("#btnCreateUser").bind("click",function(){
+          
+          var username = $("#userId").val(); 
+           socket.emit("CREATE-USER",username);
+       });
+        
+        $("#btnSend").bind("click", function() {
+            var chatMessage = $("#txtChat").val();
+            var username = $("#userId").val(); 
+           var friendId = $( "input:checked").attr("id");
+           
+            var obj = {username:friendId,chatMessage:chatMessage};
+            socket.emit("private-message", obj);
+        });
+ 
+        socket.on('USER-CHAT', function(args) {
+            
+            var tag = $("<li>").append(args.username+":"+args.chatMessage);
+            $("#chatMessages").append(tag);
+            console.log(args);
+        });
+        socket.on("private-message",function(args){
+               var tag = $("<li>").append(args.username+":"+args.chatMessage);
+            $("#chatMessages").append(tag);
+            console.log(args);
+        });
+           socket.on("USER-JOINED",function(args){
+               var user =document.createElement("input");
+               user.type="checkbox";
+               user.id=args;
+               console.log(user);
+               var tag = $("<li>").append(user).append(args);
+                  $("#chatMessages").append(tag);
+        });
+        
+
+    </script>
+</body>
+
+</html>
