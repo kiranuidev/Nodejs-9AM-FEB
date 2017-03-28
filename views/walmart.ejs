@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+    </head>
+    <body>
+    <h1>Welcome to Walmart</h1>
+    <form action="/walmart" method="post">
+    <div class="row">
+        <div class="col-md-2">
+        <input type="text" name="search" class="form-control">
+        </div>
+        <div class="col-md-2">
+        <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+    <% if(products!=undefined){ %>
+    <table class="table tbl-hovered">
+    <tr><td>#No</td>
+        <td>Name</td>
+    </tr>
+     <% products.items.forEach(function(item) { %>
+     <tr>
+        <td><%= item.itemId %></td>
+        <td> <%= item.name %></td></tr>
+    <% }); %>
+     <% } %>
+</form>
+    </body>
+</html>

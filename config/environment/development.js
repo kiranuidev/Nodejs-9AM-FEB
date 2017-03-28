@@ -3,7 +3,8 @@ module.exports ={
  databases:{
      mongodb:"mongodb://demouser:tested@localhost:27017/snapproducts"
  },
-   facebookAuth : {
+ wallMartUrl: "http://api.walmartlabs.com/v1/search?apiKey=yjrruzc9fgbxvs28qw2rjczv&format=json"
+  , facebookAuth : {
         'clientID'        : '206365173142215', // your App ID
         'clientSecret'    : '45b9ab7a1a5aa17569eacccb71c98ade', // your App Secret
         'callbackURL'     : 'http://localhost:4000/login/facebook/callback',

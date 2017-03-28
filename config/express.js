@@ -30,7 +30,7 @@ require("../app/products/products.route")(app);
 require("../app/profile/profile.route")(app);
 require("../app/users/users.route")(app);
 require("../app/fileUpload/fileUpload")(app);
-
+require("../app/walmart/walmart")(app);
 
 function authorize(req, res, next) {
     if (req.url == "/login" 
